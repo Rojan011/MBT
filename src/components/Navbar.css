@@ -90,6 +90,7 @@
     left: -100%;
     opacity: 1;
     transition: all 0.5s ease;
+    justify-content: flex-start;
   }
 
   .nav-menu.active {
@@ -155,4 +156,7 @@
     color: #242424;
     transition: 250ms;
   }
+}
+.mathi{
+  margin-right: 5px;
 }
