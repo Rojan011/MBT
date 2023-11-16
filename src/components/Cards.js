@@ -16,7 +16,7 @@ function Cards() {
               path="/services"
             />
             <CardItem
-              src="images/mri.jpg"
+              src="images/detected.jpg"
               text="MRI: A non-invasive medical imaging method using magnetic fields and radio waves to create detailed, radiation-free images of internal body structures for diagnosing various conditions."
               label="MRI Scans"
               path="/services"
