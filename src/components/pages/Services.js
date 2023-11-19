@@ -6,7 +6,7 @@ import axios from 'axios';
 export default function Services(){
     const[image,setImage]=useState('');
     function handleImage(e){
-            setImage(e.target.file[0]);
+            setImage(e.target.files[0]);
     }
 
     function handleApi(){
