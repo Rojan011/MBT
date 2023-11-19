@@ -6,6 +6,7 @@ import Products from "./components/pages/Products";
 import Services from "./components/pages/Services";
 import SignUp from "./components/pages/SignUp";
 
+//this is the function
 function App() {
   return (
     <>
