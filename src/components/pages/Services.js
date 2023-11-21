@@ -19,7 +19,7 @@ export default function Services() {
   return (
     <div className="services">
       <div>
-        <h6>Upload Your Image Here!</h6>
+        <h6>Upload Your Image Here!!!</h6>
       </div>
       <div>
         <input type="file" name="file"  accept="image/*" onChange={handleImage} />
