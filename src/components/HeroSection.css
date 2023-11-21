@@ -5,6 +5,7 @@ video {
   position: fixed;
   z-index: -1;
 }
+
 .hero-container {
   background: url('../../public/images/brain.jpg') center center/cover no-repeat;
   height: 100vh;
