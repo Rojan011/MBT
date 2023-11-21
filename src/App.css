@@ -23,6 +23,8 @@
   background-repeat: no-repeat;
   color: #fff;
   font-size: 100px;
+  display: flex;
+  flex-direction: column;
 }
 
 .products {
