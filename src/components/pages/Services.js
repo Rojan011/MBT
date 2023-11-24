@@ -6,15 +6,21 @@ import axios from 'axios';
 export default function Services(){
     const[image,setImage]=useState('');
     function handleImage(e){
-            setImage(e.target.file[0]);
+        //
+            setImage(e.target.files[0]);
     }
 
-    function handleApi(){
+    async function handleApi(){
         const formData=  new FormData();
-        formData.append('image',image);
-        axios.post('url',formData).then((res)=>{
-            console.log(res)
-        })
+        formData.append('profile',image);
+        try{
+            const res = await axios.post('http://localhost:4000/upload',formData)
+            if (res.status === 200) alert("successful")
+        }
+        catch{
+            alert("not successful")
+        }
+
     }
     return(
     <div>
