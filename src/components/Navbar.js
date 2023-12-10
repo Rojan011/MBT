@@ -1,9 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Button } from './Button';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+import React, { useState, useEffect } from "react";
+import { Button } from "./Button";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar() {
+  // //changes
+  // const [isLoggedIn, setIsLoggedIn]=useState(localStorage.getItem('isLoggedIn'))
+  
+  // useEffect(()=>{
+  //   setIsLoggedIn(localStorage.getItem('isLoggedIn'))
+  // },[isLoggedIn])
+  //changes
+
+  const [isLoggedIn,setIsLoggedIn] = useState(false)
+
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -18,59 +28,70 @@ function Navbar() {
     }
   };
 
+
   useEffect(() => {
     showButton();
   }, []);
 
-  window.addEventListener('resize', showButton);
-
+  window.addEventListener("resize", showButton);
+  
   return (
     <>
-      <nav className='navbar'>
-        <div className='navbar-container'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            <span className='mathi'>Brain Tumor Detector</span>
-            <i class="fas fa-brain"/>
+      <nav className="navbar">
+        <div className="navbar-container">
+          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+            <span className="mathi">Brain Tumor Detector</span>
+            <i class="fas fa-brain" />
           </Link>
-          <div className='menu-icon' onClick={handleClick}>
-            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+          <div className="menu-icon" onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-            <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
                 Home
               </Link>
             </li>
-            <li className='nav-item'>
+            {/* Esma change garne jati */}
+            { !isLoggedIn ?  <li className="nav-item"> 
               <Link
-                to='/services'
-                className='nav-links'
+                to="/services"
+                className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Services
+                Upload Image
+              </Link>
+            </li>:null
+
+            
+            }
+           
+            <li className="nav-item">
+              <Link
+                to="/products"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Blogsss
               </Link>
             </li>
-            <li className='nav-item'>
-              <Link
-                to='/products'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Products
+            <li>
+              <Link to="/blog" className="nav-links" onClick={closeMobileMenu}>
+                Blog
               </Link>
             </li>
 
             <li>
               <Link
-                to='/sign-up'
-                className='nav-links-mobile'
+                to="/sign-up"
+                className="nav-links-mobile"
                 onClick={closeMobileMenu}
               >
-                Sign Up
+                Login
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+          {button && <Button buttonStyle="btn--outline">LOG IN</Button>}
         </div>
       </nav>
     </>

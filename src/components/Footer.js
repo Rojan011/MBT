@@ -10,7 +10,7 @@ function Footer() {
         <div class='social-media-wrap'>
           <div class='footer-logo'>
             <Link to='/' className='social-logo'>
-              Brain Tumor Detector
+              <span className='mathi'>Brain Tumor Detector</span>
             <i class="fas fa-brain"/>
             </Link>
           </div>
