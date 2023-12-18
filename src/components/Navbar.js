@@ -55,7 +55,7 @@ function Navbar() {
             {/* Esma change garne jati */}
             { !isLoggedIn ?  <li className="nav-item"> 
               <Link
-                to="/services"
+                to="/uploadimage"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
@@ -68,7 +68,7 @@ function Navbar() {
            
             <li className="nav-item">
               <Link
-                to="/products"
+                to="/mriinformation"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
@@ -76,7 +76,7 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link to="/blog" className="nav-links" onClick={closeMobileMenu}>
+              <Link to="/healthadvices" className="nav-links" onClick={closeMobileMenu}>
                 Health Advices
               </Link>
             </li>

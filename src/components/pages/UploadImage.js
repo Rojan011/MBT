@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "../../App.css";
 import axios from "axios";
-import'./Services.css';
+import'./UploadImage.css';
 
 // export default function Services() {
 //   const [image, setImage] = useState("");
@@ -30,7 +30,7 @@ import'./Services.css';
 //   );
 // }
 
-export default function Services() {
+export default function UploadImage() {
   const [image, setImage] = useState(null);
   function handleImage(e) {
     setImage(e.target.files[0]);
@@ -74,7 +74,7 @@ export default function Services() {
   }
 
   return (
-    <div className="services">
+    <div className="uploadimage">
       <div>
         <h6>Upload Your Image Here!</h6>
       </div>

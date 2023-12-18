@@ -6,8 +6,8 @@
 }
 
 .home,
-.services,
-.products,
+.uploadimage,
+.mriinformation,
 .sign-up {
   display: flex;
   height: 90vh;
@@ -15,8 +15,8 @@
   justify-content: center;
   font-size: 3rem;
 }
-
-.services {
+/* services-->uploadImage ko css ho */
+.uploadimage {
   background-image: url('../public/images/upload.png');
   background-position: center;
   background-size: cover;
@@ -26,8 +26,8 @@
   display: flex;
   flex-direction: column;
 }
-
-.products {
+/* products--> MriInformation ko css ho */
+.mriinformation {
   background-image: url('../public/images/blog.png');
   background-position: center;
   background-size: fill;

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../App.css'
 import Cards from '../Cards'
-function Blog() {
+function HealthAdvices() {
 
     const [blogs,setBlogs] = [
         {
@@ -31,4 +31,4 @@ function Blog() {
   )
 }
 
-export default Blog;
+export default HealthAdvices;

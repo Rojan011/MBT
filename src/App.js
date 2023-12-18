@@ -2,11 +2,10 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './components/pages/Home';
-import Products from "./components/pages/Products";
-import Services from "./components/pages/Services";
-import Footer from "./components/Footer";
 import SignUp from "./components/pages/SignUp";
-import Blog from "./components/pages/Blog";
+import UploadImage from "./components/pages/UploadImage";
+import MriInformation from "./components/pages/MriInformation";
+import HealthAdvices from "./components/pages/HealthAdvices";
 
 //this is the function
 function App() {
@@ -17,10 +16,10 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path="/" exact element={<Home/>} />
-          <Route path="/services" exact element={<Services/>} />
-          <Route path="/products" exact element={<Products/>} />
+          <Route path="/uploadimage" exact element={<UploadImage/>} />
+          <Route path="/mriinformation" exact element={<MriInformation/>} />
           <Route path="/sign-up" exact element={<SignUp/>} />
-          <Route path="/blog" exact element={<Blog/>}/>
+          <Route path="/healthadvices" exact element={<HealthAdvices/>}/>
         </Routes>
       </Router>
     </>
