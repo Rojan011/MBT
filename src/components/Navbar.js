@@ -72,12 +72,12 @@ function Navbar() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Blogsss
+                MRI Information
               </Link>
             </li>
             <li>
               <Link to="/blog" className="nav-links" onClick={closeMobileMenu}>
-                Blog
+                Health Advices
               </Link>
             </li>
 

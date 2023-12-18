@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "../../App.css";
 import axios from "axios";
+import'./Services.css';
 
 // export default function Services() {
 //   const [image, setImage] = useState("");
@@ -85,5 +86,6 @@ export default function Services() {
       {msg && <span>{msg}</span>}
 
     </div>
+    
   );
 }

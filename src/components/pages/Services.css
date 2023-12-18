@@ -1,0 +1,20 @@
+/* Add a new class for the container */
+.upload-container {
+    background-color: rgba(0, 0, 0, 0.8); /* Adjust the background color and opacity as needed */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+  }
+/* Style the file input and button within the container */
+.upload-container input[type="file"],
+.upload-container button {
+margin-top: 10px;
+font-size: 16px;
+}
+
+/* Style the progress bar and message within the container */
+.upload-container progress,
+.upload-container span {
+margin-top: 10px;
+font-size: 18px;
+}
