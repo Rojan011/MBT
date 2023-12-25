@@ -13,13 +13,13 @@ function Cards() {
               src="images/tumor.jpg"
               text="The human brain: a complex and dynamic organ orchestrating thoughts, emotions, and bodily functions with trillions of connections."
               label="Human Brain"
-              path="/blog"
+              path="/healthadvices"
             />
             <CardItem
               src="images/detected.jpg"
               text="MRI: A non-invasive medical imaging method using magnetic fields and radio waves to create detailed, radiation-free images of internal body structures for diagnosing various conditions."
               label="MRI Scans"
-              path="/blog"
+              path="/healthadvices"
             />
           </ul>
           <ul className="cards__items">
@@ -27,19 +27,19 @@ function Cards() {
               src="images/tumor.jpg"
               text="The human brain: a complex and dynamic organ orchestrating thoughts, emotions, and bodily functions with trillions of connections."
               label="Human Brain"
-              path="/blog"
+              path="/healthadvices"
             />
             <CardItem
               src="images/mri.jpg"
               text="MRI: A non-invasive medical imaging method using magnetic fields and radio waves to create detailed, radiation-free images of internal body structures for diagnosing various conditions."
               label="MRI Scans"
-              path="/blog"
+              path="/healthadvices"
             />
             <CardItem
               src="images/detected.jpg"
               text="Explore the hidden waterfall deep in the Amazom forest"
               label="Tumor"
-              path="/blog"
+              path="/healthadvices"
             />
           </ul>
         </div>

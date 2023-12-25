@@ -23,7 +23,7 @@ function HeroSection() {
           buttonSize='btn--large'
           onClick={console.log('hey')}
         >
-          LEARN MORE <i class="far fa-lightbulb"></i>
+          LEARN MORE <i className="far fa-lightbulb"></i>
         </Button>
       </div>
     </div>
