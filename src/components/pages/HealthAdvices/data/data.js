@@ -9,7 +9,7 @@ export const blogList = [
     authorName: "Rajottam Pradhan",
     authorAvatar: "/images/pp.jpg",
     createdAt: "December 10, 2022",
-    cover: "images/segmentation.jpg",
+    cover: "/images/segmentation.jpg",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const blogList = [
     authorName: "Rojan Shrestha",
     authorAvatar: "/images/pp.jpg",
     createdAt: "January 05, 2023",
-    cover: "images/brain.jpg",
+    cover: "/images/brain.jpg",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const blogList = [
     authorName: "Sandesh Koirala",
     authorAvatar: "/images/pp.jpg",
     createdAt: "March 22, 2023",
-    cover: "images/tumor.jpg",
+    cover: "/images/tumor.jpg",
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ export const blogList = [
     authorName: "Sanjit Khanal",
     authorAvatar: "/images/pp.jpg",
     createdAt: "May 14, 2023",
-    cover: "images/mri.jpg",
+    cover: "/images/mri.jpg",
   },
   {
     id: 5,
@@ -58,7 +58,7 @@ export const blogList = [
     authorName: "Feliks Zemdegs",
     authorAvatar: "/images/pp.jpg",
     createdAt: "July 08, 2023",
-    cover: "images/challenges.png",
+    cover: "/images/challenges.png",
   },
   {
     id: 6,
@@ -70,7 +70,7 @@ export const blogList = [
     authorName: "Justin Gaethje",
     authorAvatar: "/images/pp.jpg",
     createdAt: "September 19, 2023",
-    cover: "images/ethics.jpg",
+    cover: "/images/ethics.jpg",
   },
   {
     id: 7,
@@ -82,6 +82,6 @@ export const blogList = [
     authorName: "Tony Ferguson",
     authorAvatar: "/images/pp.jpg",
     createdAt: "November 30, 2023",
-    cover: "images/future.jpg",
+    cover: "/images/future.jpg",
   },
 ];
