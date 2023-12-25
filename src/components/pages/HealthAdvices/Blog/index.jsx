@@ -19,7 +19,7 @@ const Blog = () => {
 
   return (
     <>
-      <Link className='blog-goBack' to='/main'>
+      <Link className='blog-goBack' to='/healthadvices'>
         <span> &#8592;</span> <span>Go Back</span>
       </Link>
       {blog ? (
