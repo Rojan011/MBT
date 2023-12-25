@@ -1,20 +1,45 @@
 /* Add a new class for the container */
 .upload-container {
-    background-color: rgba(0, 0, 0, 0.8); /* Adjust the background color and opacity as needed */
+    /* background-color: rgba(0, 0, 0, 0.8); /* Adjust the background color and opacity as needed */
     padding: 20px;
     border-radius: 10px;
-    margin: 20px;
+    align-items: center;
+    width: 600px;
+    margin: 20px; 
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+    background-color: rgba(200, 200, 239, 0.75);
+    border-radius: 20px;
+    box-shadow:5px 5px 10px rgba(0,0,0,0.8) ;
+    
   }
 /* Style the file input and button within the container */
-.upload-container input[type="file"],
+/* .upload-container input[type="file"],
 .upload-container button {
 margin-top: 10px;
 font-size: 16px;
-}
+} */
 
 /* Style the progress bar and message within the container */
 .upload-container progress,
 .upload-container span {
 margin-top: 10px;
 font-size: 18px;
+}
+.upload-button{
+  background-color: rgb(27, 104, 229);
+  height: 36px;
+  border:none;
+  border-radius: 36px;
+  width: 80px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+.upload-button:hover{
+  box-shadow:5px 5px 10px rgba(0,0,0,0.15) ;
 }
