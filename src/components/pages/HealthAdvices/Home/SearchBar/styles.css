@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,300;0,400;1,300&family=Roboto:wght@400;500;700&display=swap');
+
+.searchBar-wrap {
+    background-color: #f0f0f0;
+    width: fit-content;
+    margin: 2.5rem auto 4rem auto;
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
+
+  .searchBar-wrap form {
+    display: flex;
+    align-items: center;
+  }
+
+  .searchBar-wrap input {
+    background-color: #f0f0f0;
+    outline: none;
+    border: none;
+  }
+
+  .searchBar-wrap span {
+    padding-right: 0.5rem;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    font-weight: lighter;
+    font-size: small;
+  }
+
+  .searchBar-wrap button {
+    outline: none;
+    border: none;
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+    background-color: rgb(96,113,204);
+    color: #fff;
+  }
