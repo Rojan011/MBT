@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "../../App.css";
 import axios from "axios";
-import'./UploadImage.css';
+import "./UploadImage.css";
 
 // export default function Services() {
 //   const [image, setImage] = useState("");
@@ -75,17 +75,19 @@ export default function UploadImage() {
 
   return (
     <div className="uploadimage">
-      <div>
-        <h6>Upload Your Image Here!</h6>
+      <div className="upload-container">
+        <div>
+          <h6>Upload Your Image Here!</h6>
+        </div>
+        <div>
+          <input type="file" accept="image/*" onChange={handleImage} />
+          <button className="upload-button" onClick={handleUpload}>Upload</button>
+        </div>
+        {progress.started && (
+          <progress max="100" value={progress.pc}></progress>
+        )}
+        {msg && <span>{msg}</span>}
       </div>
-      <div>
-        <input type="file" accept="image/*" onChange={handleImage} />
-        <button onClick={handleUpload}>Upload</button>
-      </div>
-      {progress.started && <progress max="100" value={progress.pc}></progress>}
-      {msg && <span>{msg}</span>}
-
     </div>
-    
   );
 }

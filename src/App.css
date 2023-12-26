@@ -22,7 +22,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
-  font-size: 100px;
+  /* font-size: 100px;  Needed to make changes here*/
   display: flex;
   flex-direction: column;
 }
