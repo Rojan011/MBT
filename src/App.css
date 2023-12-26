@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
 }
 
 .home,
@@ -17,7 +17,7 @@
 }
 /* services-->uploadImage ko css ho */
 .uploadimage {
-  background-image: url('../public/images/upload.png');
+  background-image: url("../public/images/upload.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -28,20 +28,18 @@
 }
 /* products--> MriInformation ko css ho */
 .mriinformation {
-  background-image: url('../public/images/blog.png');
+  background-image: url("../public/images/blog.png");
   background-position: center;
   background-size: fill;
   background-repeat: no-repeat;
   color: #fff;
-  font-size: 100px;
 }
 
 .sign-up {
-  background-image: url('../public/images/loginb.png');
+  background-image: url("../public/images/loginb.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
   font-size: 100px;
 }
-
