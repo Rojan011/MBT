@@ -29,12 +29,12 @@ export default function SignUp() {
         // console.log("Logged in:", response?.data);
 
         axios.post("http://localhost:4000/api/auth/login", {
-            username: username,
+            email: email,
             password: pwd,
           }, 
           {headers:headers})
           .then(res=>console.log(res))
-.catch(err=>console.log(err));
+          .catch(err=>console.log(err));
 
         // Redirect or perform other actions based on the response
         //navigate("/");
@@ -115,12 +115,12 @@ export default function SignUp() {
           <div className="input">
             <img src={email_icon} alt="" />
             <input
-              type="text"
+              type="email"
               onChange={(e) => {
                 // console.log(e)
-                setUserName(e.target.value);
+                setEmail(e.target.value);
               }}
-              placeholder="Your Username"
+              placeholder="Your Email"
             />
           </div>
           <div className="input">
