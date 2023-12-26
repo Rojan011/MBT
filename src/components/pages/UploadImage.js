@@ -45,14 +45,14 @@ export default function UploadImage() {
       return;
     }
     const fd = new FormData();
-    fd.append("image", image);
+    fd.append("profile", image);
 
     setMsg("Uploading...");
     setProgress((prevState) => {
       return { ...prevState, started: true };
     });
     axios
-      .post("api", fd, {
+      .post("http://localhost:4000/upload", fd, {
         onUploadProgress: (progressEvent) => {
           setProgress((prevState) => {
             return { ...prevState, pc: progressEvent.progress * 100 };
