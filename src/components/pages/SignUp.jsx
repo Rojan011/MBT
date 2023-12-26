@@ -37,7 +37,7 @@ export default function SignUp() {
           .catch(err=>console.log(err));
 
         // Redirect or perform other actions based on the response
-        //navigate("/");
+        navigate("/");
       } else {
         const response = await axios.post("http://localhost:4000/api/auth/register", {
           username,
