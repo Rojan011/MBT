@@ -52,7 +52,7 @@ export default function UploadImage() {
       return { ...prevState, started: true };
     });
     axios
-      .post("http://localhost:4000/upload", fd, {
+      .post("http://127.0.0.1:4000/upload", fd, {
         onUploadProgress: (progressEvent) => {
           setProgress((prevState) => {
             return { ...prevState, pc: progressEvent.progress * 100 };

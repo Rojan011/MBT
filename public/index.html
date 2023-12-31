@@ -49,5 +49,26 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script>
+      window.botpressWebChat.init({
+          "composerPlaceholder": "Chat with Brain Tumor Detector",
+          "botConversationDescription": "Know about Brain Tumor and our project",
+          "botId": "6fcbd260-d62c-4f2a-81b0-2b0c2d9c3e00",
+          "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+          "messagingUrl": "https://messaging.botpress.cloud",
+          "clientId": "6fcbd260-d62c-4f2a-81b0-2b0c2d9c3e00",
+          "webhookId": "41059f97-5cab-4860-8577-41c611304b6d",
+          "lazySocket": true,
+          "themeName": "prism",
+          "stylesheet": "https://webchat-styler-css.botpress.app/prod/7304db8e-9093-4b5b-b82e-2f4b958abfb2/v14532/style.css",
+          "frontendVersion": "v1",
+          "enableConversationDeletion": true,
+          "theme": "prism",
+          "themeColor": "#2563eb"
+      });
+    </script>
+
   </body>
 </html>
