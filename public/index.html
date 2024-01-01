@@ -72,5 +72,24 @@
       });
     </script>
 
+    <button id="myButton">Click Me!</button>
+
+    <script>
+      window.botpressWebChat.onEvent(
+        function (event) {
+          if (event.type === 'LIFECYCLE.LOADED') {
+            window.botpressWebChat.sendEvent({ type: 'show' })
+            window.botpressWebChat.sendPayload({
+          type: 'trigger',
+          payload: {
+            myCustomProperty: 'hello',
+          },
+        })
+          }
+        },
+        ['LIFECYCLE.LOADED']
+      )
+      </script>
+
   </body>
 </html>
