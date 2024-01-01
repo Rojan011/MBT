@@ -10,9 +10,19 @@ function Navbar() {
   // useEffect(()=>{
   //   setIsLoggedIn(localStorage.getItem('isLoggedIn'))
   // },[isLoggedIn])
+
   //changes
 
-  const [isLoggedIn,setIsLoggedIn] = useState(false)
+  // const [isLoggedIn,setIsLoggedIn] = useState(false);
+  // useEffect(()=>{
+  //   const logInfo=localStorage.getItem('isLoggedIn');
+  //   setIsLoggedIn(true);
+  // },[]);
+  // const loginHandler=()=>{
+  //   localStorage.setItem('isLoggedIn','1');
+  //   setIsLoggedIn(true);
+  // }
+
 
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -53,7 +63,7 @@ function Navbar() {
               </Link>
             </li>
             {/* Esma change garne jati */}
-            { !isLoggedIn ?  <li className="nav-item"> 
+             <li className="nav-item"> 
               <Link
                 to="/uploadimage"
                 className="nav-links"
@@ -61,10 +71,10 @@ function Navbar() {
               >
                 Upload Image
               </Link>
-            </li>:null
+            </li>
 
             
-            }
+           
            
             <li className="nav-item">
               <Link
