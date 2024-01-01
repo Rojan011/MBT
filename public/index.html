@@ -72,22 +72,24 @@
       });
     </script>
 
-    <script>
+<script>
+  window.botpressWebChat.sendPayload({
+  type: 'trigger',
+  payload: {
+    myCustomProperty: 'hello',
+  },
+})
+</script>
+     <script>
       window.botpressWebChat.onEvent(
         function (event) {
           if (event.type === 'LIFECYCLE.LOADED') {
             window.botpressWebChat.sendEvent({ type: 'show' })
-            window.botpressWebChat.sendPayload({
-          type: 'trigger',
-          payload: {
-            myCustomProperty: 'hello',
-          },
-        })
           }
         },
         ['LIFECYCLE.LOADED']
       )
-      </script>
+      </script> 
 
   </body>
 </html>
