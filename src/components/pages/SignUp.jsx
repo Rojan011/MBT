@@ -28,7 +28,7 @@ export default function SignUp() {
 
         // console.log("Logged in:", response?.data);
 
-        axios.post("http://localhost:4000/api/auth/login", {
+        axios.post("http://localhost:8080/api/auth/login", {
             email: email,
             password: pwd,
           }, 
@@ -39,7 +39,7 @@ export default function SignUp() {
         // Redirect or perform other actions based on the response
         navigate("/");
       } else {
-        const response = await axios.post("http://localhost:4000/api/auth/register", {
+        const response = await axios.post("http://localhost:8080/api/auth/register", {
           username,
           email,
           password: pwd,
@@ -51,7 +51,7 @@ export default function SignUp() {
         navigate("/");
       }
     } catch (error) {
-      console.error("Error:", error.response.data);
+      console.error("Error:", error.response);
       // Handle error, display error messages, etc.
     }
   };
