@@ -52,7 +52,7 @@ export default function UploadImage() {
       return { ...prevState, started: true };
     });
     axios
-      .post("http://127.0.0.1:4000/upload", fd, {
+      .post("http://127.0.0.1:8080/upload", fd, {
         onUploadProgress: (progressEvent) => {
           setProgress((prevState) => {
             return { ...prevState, pc: progressEvent.progress * 100 };
@@ -90,4 +90,26 @@ export default function UploadImage() {
       </div>
     </div>
   );
+  // return (
+  //   <div className="uploadimage">
+  //     <div className="upload-container">
+  //       <form
+  //         action="/posts/files/"
+  //         encType="multipart/form-data"
+  //         method="post"
+  //       >
+  //         <input name="files" type="file" multiple />
+  //         <input type="submit" />
+  //       </form>
+  //       <form
+  //         action="/posts/uploadfiles/"
+  //         encType="multipart/form-data"
+  //         method="post"
+  //       >
+  //         <input name="files" type="file" multiple />
+  //         <input type="submit" />
+  //       </form>
+  //     </div>
+  //   </div>
+  // );
 }

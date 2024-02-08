@@ -6,24 +6,35 @@ import SignUp from "./components/pages/SignUp";
 import UploadImage from "./components/pages/UploadImage";
 import MriInformation from "./components/pages/MriInformation";
 import HealthAdvices from "./components/pages/HealthAdvices/HealthAdvices";
-import Main from "./components/pages/HealthAdvices/Main";
+
 import Blog from "./components/pages/HealthAdvices/Blog";
+import { createContext } from "react";
+import { useState,useContext } from "react";
+// import AuthProvider from "./components/pages/AuthProvider";
 
 //this is the function
+
+export const LoginContext=createContext({});
+
 function App() {
+  const [login, setLogin] = useState(false);
+  console.log(login)
+  
   return (
     <>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/uploadimage" exact element={<UploadImage />} />
-          <Route path="/mriinformation" exact element={<MriInformation />} />
-          <Route path="/sign-up" exact element={<SignUp />} />
-          <Route path="/healthadvices" exact element={<HealthAdvices />} />
-          <Route path="blog/:id" exact element={<Blog />} />
-        </Routes>
-      </Router>
+      <LoginContext.Provider value={{login,setLogin}} >
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/uploadimage" exact element={login?<UploadImage />:<SignUp/>} />
+            <Route path="/mriinformation" exact element={<MriInformation />} />
+            <Route path="/sign-up" exact element={<SignUp />} />
+            <Route path="/healthadvices" exact element={<HealthAdvices />} />
+            <Route path="blog/:id" exact element={<Blog />} />
+          </Routes>
+        </Router>
+      </LoginContext.Provider>
     </>
   );
 }

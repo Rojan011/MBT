@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import AuthUser from "./pages/AuthUser";
+import { LoginContext } from "../App";
 
 function Navbar() {
+  const { login, setLogin } = useContext(LoginContext);
   // //changes
   // const [isLoggedIn, setIsLoggedIn]=useState(localStorage.getItem('isLoggedIn'))
-  
+
   // useEffect(()=>{
   //   setIsLoggedIn(localStorage.getItem('isLoggedIn'))
   // },[isLoggedIn])
@@ -23,7 +26,6 @@ function Navbar() {
   //   setIsLoggedIn(true);
   // }
 
-
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -38,13 +40,12 @@ function Navbar() {
     }
   };
 
-
   useEffect(() => {
     showButton();
   }, []);
 
   window.addEventListener("resize", showButton);
-  
+
   return (
     <>
       <nav className="navbar">
@@ -63,19 +64,18 @@ function Navbar() {
               </Link>
             </li>
             {/* Esma change garne jati */}
-             <li className="nav-item"> 
-              <Link
-                to="/uploadimage"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
-                Upload Image
-              </Link>
-            </li>
+            {login && (
+              <li className="nav-item">
+                <Link
+                  to="/uploadimage"
+                  className="nav-links"
+                  onClick={closeMobileMenu}
+                >
+                  Upload Image
+                </Link>
+              </li>
+            )}
 
-            
-           
-           
             <li className="nav-item">
               <Link
                 to="/mriinformation"
@@ -86,7 +86,11 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link to="/healthadvices" className="nav-links" onClick={closeMobileMenu}>
+              <Link
+                to="/healthadvices"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
                 Health Advices
               </Link>
             </li>
@@ -101,7 +105,7 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          {button && <Button  buttonStyle="btn--outline">LOGIN</Button>}
+          {button && <Button buttonStyle="btn--outline">LOGIN</Button>}
         </div>
       </nav>
     </>
