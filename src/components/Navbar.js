@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../App";
 
 function Navbar() {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const { login, setLogin } = useContext(LoginContext);
-  const {token}=AuthUser();
+  const { token } = AuthUser();
   // //changes
   // const [isLoggedIn, setIsLoggedIn]=useState(localStorage.getItem('isLoggedIn'))
 
@@ -28,17 +28,17 @@ function Navbar() {
   //   localStorage.setItem('isLoggedIn','1');
   //   setIsLoggedIn(true);
   // }
-  const logout=()=>{
+  const logout = () => {
     sessionStorage.clear();
-    navigate('/sign-up')
-  }
-  const logoutHandler=()=>{
+    navigate("/sign-up");
+  };
+  const logoutHandler = () => {
     setClick(false);
-    if(token!= undefined){
+    if (token !== undefined) {
       logout();
     }
     setLogin(false);
-  }
+  };
 
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -73,7 +73,7 @@ function Navbar() {
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             <span className="mathi">Brain Tumor Detector</span>
-            <i class="fas fa-brain" />
+            <i className="fas fa-brain" />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -149,7 +149,22 @@ function Navbar() {
             )}
           </ul>
           {button && !login && (
-            <Button buttonStyle="btn--outline">LOGIN</Button>
+            <Button buttonStyle="btn--outline">
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <span style={{ marginRight: "8px" }}>Login</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path
+                    d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"
+                    fill="#FFFFFF"
+                  />
+                </svg>
+              </div>
+            </Button>
           )}
           {button && login && (
             <Button onClick={logoutHandler} buttonStyle="btn--outline">
@@ -165,17 +180,20 @@ function Navbar() {
                 //   </svg>
                 //   <span style={{ marginLeft: '8px' }}>{user}</span>
                 // </div>
-                <div style={{display:'flex',alignItems:'center'}}>
-                <span style={{ marginRight:'8px' }}>Logout</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 -960 960 960"
-                  width="24"
-                >
-                  <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z" fill="#FFFFFF" />
-                </svg>
-              </div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <span style={{ marginRight: "8px" }}>Logout</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 -960 960 960"
+                    width="24"
+                  >
+                    <path
+                      d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"
+                      fill="#FFFFFF"
+                    />
+                  </svg>
+                </div>
               }
             </Button>
           )}
