@@ -92,7 +92,7 @@ function Navbar() {
                   className="nav-links"
                   onClick={closeMobileMenu}
                 >
-                  Upload Image
+                  Upload Files
                 </Link>
               </li>
             )}
