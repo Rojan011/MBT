@@ -75,17 +75,74 @@ export default function UploadImage() {
 
   //Nifty file halne logic-->
   
-    const handleFormSubmit = (event, url) => {
-      event.preventDefault();
-      const formData = new FormData(event.target);
-      fetch(url, {
-        method: "POST",
-        body: formData,
+  const handleFormSubmit = (event, url, userName) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        return response;
       })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error("Eta error"));
-    };
+      .then((data) => {
+        console.log(data);
+        // Make the second request
+        return fetch(`https://eagerly-nearby-jaguar.ngrok-free.app/predict/${userName}`
+          ,{
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+              "ngrok-skip-browser-warning": '1231'
+            }
+          }
+        );
+      })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+
+        // Extract the download URL from the response
+        console.log(data);
+        const downloadUrl = data.download_url;
+        console.log(downloadUrl);
+
+        // Make the third request to the download URL
+        return fetch(downloadUrl,{
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "ngrok-skip-browser-warning": '1231'
+          }
+        });
+      })
+      .then((response) => {
+        // Extract the filename from the Content-Disposition header
+        console.log(response);
+
+        let filename = `${userName}_predicitons.npy`; // Default filename
+        // Read the response data as a Blob
+        return response.blob().then((blob) => {
+          return {blob, filename};
+        });
+      })
+      .then(({blob, filename}) => {
+        // Create a download link and click it to start the download
+        console.log(blob);
+        console.log(filename);
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', filename);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      })
+      .catch((error) => console.error("Error:", error));
+  };
 //logic end -->
 
   // return (
@@ -139,7 +196,7 @@ export default function UploadImage() {
     <div className="uploadimage">
       <div className="upload-container">
         <div>Upload Your NIfTI Files !</div>
-        <form onSubmit={(event) => handleFormSubmit(event, `https://eagerly-nearby-jaguar.ngrok-free.app/uploadfiles/${user}`)}>
+        <form onSubmit={(event) => handleFormSubmit(event, `https://eagerly-nearby-jaguar.ngrok-free.app/uploadfiles/${user}`, user)}>
           <input name="files" type="file" multiple />
           <input type="submit" />
         </form>
