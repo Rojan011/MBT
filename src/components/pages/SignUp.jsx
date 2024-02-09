@@ -200,7 +200,7 @@ export const headers = {
 
 export default function SignUp() {
   const { http, setToken } = AuthUser();
-  
+
   const { login, setLogin } = useContext(LoginContext); // Use the useContext hook to access the context values
   const [action, setAction] = useState("Log In");
   const [username, setUserName] = useState("");
@@ -216,8 +216,7 @@ export default function SignUp() {
           .then((res) => {
             setToken(res.data.username, res.data.accessToken);
             setLogin(true); // Update the login context in the parent component
-          })
-         
+          });
       } else {
         const response = await axios.post(
           "http://localhost:8080/api/auth/register",
@@ -239,89 +238,104 @@ export default function SignUp() {
 
   return (
     <div className="sign-up">
-      <div className="container">
-        <div className="header">
-          {/* <div className="text">{action}</div> */}
-          <div className="submit-container">
-            <div
-              className={action === "Log In" ? "submit gray" : "submit"}
-              onClick={() => {
-                setAction("Sign Up");
-              }}
-            >
-              Sign Up
-            </div>
-            <div
-              className={action === "Sign Up" ? "submit gray" : "submit"}
-              onClick={() => {
-                setAction("Log In");
-              }}
-            >
-              Log In
+      {!login && (
+        <div className="container">
+          <div className="header">
+            {/* <div className="text">{action}</div> */}
+            <div className="submit-container">
+              <div
+                className={action === "Log In" ? "submit gray" : "submit"}
+                onClick={() => {
+                  setAction("Sign Up");
+                }}
+              >
+                Sign Up
+              </div>
+              <div
+                className={action === "Sign Up" ? "submit gray" : "submit"}
+                onClick={() => {
+                  setAction("Log In");
+                }}
+              >
+                Log In
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="inputs">
-          {action === "Log In" ? (
-            <div></div>
-          ) : (
-            <div className="input" style={{ marginTop: 20 }}>
-              <img src={user_icon} alt="" />
+          <div className="inputs">
+            {action === "Log In" ? (
+              <div></div>
+            ) : (
+              <div className="input" style={{ marginTop: 20 }}>
+                <img src={user_icon} alt="" />
+                <input
+                  type="text"
+                  onChange={(e) => {
+                    console.log(e);
+                    setUserName(e.target.value);
+                  }}
+                  placeholder="Your Name"
+                />
+              </div>
+            )}
+
+            <div className="input">
+              <img src={email_icon} alt="" />
               <input
-                type="text"
+                type="email"
                 onChange={(e) => {
-                  console.log(e);
-                  setUserName(e.target.value);
+                  // console.log(e)
+                  setEmail(e.target.value);
                 }}
-                placeholder="Your Name"
+                placeholder="Your Email"
               />
             </div>
+            <div className="input">
+              <img src={password_icon} alt="" />
+              <input
+                type="password"
+                onChange={(e) => {
+                  setPwd(e.target.value);
+                }}
+                placeholder="Your Password"
+              />
+            </div>
+          </div>
+          {action === "Sign Up" ? (
+            <div></div>
+          ) : (
+            <div className="forgot-password">
+              Forgot Password?<span>Click Here</span>
+            </div>
           )}
-
-          <div className="input">
-            <img src={email_icon} alt="" />
-            <input
-              type="email"
-              onChange={(e) => {
-                // console.log(e)
-                setEmail(e.target.value);
-              }}
-              placeholder="Your Email"
-            />
-          </div>
-          <div className="input">
-            <img src={password_icon} alt="" />
-            <input
-              type="password"
-              onChange={(e) => {
-                setPwd(e.target.value);
-              }}
-              placeholder="Your Password"
-            />
+          <div
+            className="submit-container"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 10,
+            }}
+          >
+            <div className="submit" onClick={submitHandler}>
+              Submit
+            </div>
           </div>
         </div>
-        {action === "Sign Up" ? (
-          <div></div>
-        ) : (
-          <div className="forgot-password">
-            Forgot Password?<span>Click Here</span>
-          </div>
-        )}
-        <div
-          className="submit-container"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: 10,
-          }}
-        >
-          <div className="submit" onClick={submitHandler}>
-            Submit
-          </div>
-        </div>
-      </div>
+      )}
+      {login && (
+        <button>
+          <span style={{ fontSize: '24px' }}>Logout</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            viewBox="0 -960 960 960"
+            width="24"
+          >
+            <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }

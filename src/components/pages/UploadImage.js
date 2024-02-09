@@ -73,43 +73,77 @@ export default function UploadImage() {
       });
   }
 
-  return (
-    <div className="uploadimage">
-      <div className="upload-container">
-        <div>
-          <h6>Upload Your Image Here!</h6>
-        </div>
-        <div>
-          <input type="file" accept="image/*" onChange={handleImage} />
-          <button className="upload-button" onClick={handleUpload}>Upload</button>
-        </div>
-        {progress.started && (
-          <progress max="100" value={progress.pc}></progress>
-        )}
-        {msg && <span>{msg}</span>}
-      </div>
-    </div>
-  );
+  //Nifty file halne logic-->
+  
+    const handleFormSubmit = (event, url) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      fetch(url, {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error("Eta error"));
+    };
+//logic end -->
+
   // return (
   //   <div className="uploadimage">
   //     <div className="upload-container">
-  //       <form
-  //         action="/posts/files/"
-  //         encType="multipart/form-data"
-  //         method="post"
-  //       >
-  //         <input name="files" type="file" multiple />
-  //         <input type="submit" />
-  //       </form>
-  //       <form
-  //         action="/posts/uploadfiles/"
-  //         encType="multipart/form-data"
-  //         method="post"
-  //       >
-  //         <input name="files" type="file" multiple />
-  //         <input type="submit" />
-  //       </form>
+  //       <div>
+  //         <h6>Upload Your Image Here!</h6>
+  //       </div>
+  //       <div>
+  //         <input type="file" accept="image/*" onChange={handleImage} />
+  //         <button className="upload-button" onClick={handleUpload}>Upload</button>
+  //       </div>
+  //       {progress.started && (
+  //         <progress max="100" value={progress.pc}></progress>
+  //       )}
+  //       {msg && <span>{msg}</span>}
   //     </div>
   //   </div>
   // );
+  // return (
+  // <div className="uploadimage">
+  //   <div className="upload-container">
+  //     <form
+  //       action="/posts/files/"
+  //       encType="multipart/form-data"
+  //       method="post"
+  //     >
+  //       <input name="files" type="file" multiple />
+  //       <input type="submit" />
+  //     </form>
+  //     <form
+  //       action="/posts/uploadfiles/"
+  //       encType="multipart/form-data"
+  //       method="post"
+  //     >
+  //       <input name="files" type="file" multiple />
+  //       <input type="submit" />
+  //     </form>
+  //   </div>
+  // </div>
+  // );
+
+  //Nifty files logic-->
+  const getUser = () => {
+    const userString = sessionStorage.getItem("user");
+    const user_detail = JSON.parse(userString);
+    return user_detail;
+  };
+  const user=getUser();
+  return (
+    <div className="uploadimage">
+      <div className="upload-container">
+        <div>Upload Your NIfTI Files !</div>
+        <form onSubmit={(event) => handleFormSubmit(event, `https://eagerly-nearby-jaguar.ngrok-free.app/uploadfiles/${user}`)}>
+          <input name="files" type="file" multiple />
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
+  );
 }
