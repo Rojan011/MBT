@@ -216,7 +216,8 @@ export default function SignUp() {
           .then((res) => {
             setToken(res.data.username, res.data.accessToken);
             setLogin(true); // Update the login context in the parent component
-          });
+          }).catch((error)=>alert('Wrong Password'))
+          ;
       } else {
         const response = await axios.post(
           "http://localhost:8080/api/auth/register",
@@ -323,7 +324,7 @@ export default function SignUp() {
           </div>
         </div>
       )}
-      {login && (
+      {/* {login && (
         <button>
           <span style={{ fontSize: '24px' }}>Logout</span>
           <svg
@@ -335,7 +336,7 @@ export default function SignUp() {
             <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z" />
           </svg>
         </button>
-      )}
+      )} */}
     </div>
   );
 }
