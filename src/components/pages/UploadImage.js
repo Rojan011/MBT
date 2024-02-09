@@ -84,7 +84,7 @@ export default function UploadImage() {
       })
         .then((response) => response.json())
         .then((data) => console.log(data))
-        .catch((error) => console.error("Eta error"));
+        .catch((error) => console.error(error));
     };
 //logic end -->
 
@@ -138,7 +138,7 @@ export default function UploadImage() {
   return (
     <div className="uploadimage">
       <div className="upload-container">
-        <div>Upload Your NIfTI Files !</div>
+        <div>Upload Your NIfTy Files !</div>
         <form onSubmit={(event) => handleFormSubmit(event, `https://eagerly-nearby-jaguar.ngrok-free.app/uploadfiles/${user}`)}>
           <input name="files" type="file" multiple />
           <input type="submit" />
