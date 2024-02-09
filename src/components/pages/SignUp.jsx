@@ -216,7 +216,7 @@ export default function SignUp() {
           .then((res) => {
             setToken(res.data.username, res.data.accessToken);
             setLogin(true); // Update the login context in the parent component
-          });
+          }).catch((error)=>alert('Wrong Password'));
       } else {
         const response = await axios.post(
           "http://localhost:8080/api/auth/register",

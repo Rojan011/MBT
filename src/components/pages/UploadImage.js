@@ -138,7 +138,7 @@ export default function UploadImage() {
   return (
     <div className="uploadimage">
       <div className="upload-container">
-        <div>Upload Your NIfTy Files !</div>
+        <div>Upload Your NIfTI Files !</div>
         <form onSubmit={(event) => handleFormSubmit(event, `https://eagerly-nearby-jaguar.ngrok-free.app/uploadfiles/${user}`)}>
           <input name="files" type="file" multiple />
           <input type="submit" />
