@@ -27,7 +27,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" exact element={<Home />} />
-            <Route path="/uploadimage" exact element={login?<UploadImage />:<SignUp/>} />
+            <Route path="/uploadfiles" exact element={login?<UploadImage />:<SignUp/>} />
             <Route path="/mriinformation" exact element={<MriInformation />} />
             <Route path="/sign-up" exact element={<SignUp />} />
             <Route path="/healthadvices" exact element={<HealthAdvices />} />

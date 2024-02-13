@@ -88,7 +88,7 @@ function Navbar() {
             {login && (
               <li className="nav-item">
                 <Link
-                  to="/uploadimage"
+                  to="/uploadfiles"
                   className="nav-links"
                   onClick={closeMobileMenu}
                 >
