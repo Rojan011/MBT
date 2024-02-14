@@ -252,36 +252,37 @@ import "./UploadImage.css";
 export default function UploadImage() {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [statusText, setStatusText] = useState("Upload");
-  const [disabled,setIsDisabled]=useState(false);
-  const [slice, setSliceNum]=useState(0);
+  const [disabled, setIsDisabled] = useState(false);
+  const [slice, setSliceNum] = useState(0);
 
   const handleImageGetter = async (event, sliceNumber, url, userName) => {
     event.preventDefault();
-  
+
     try {
       // Make a GET request to the API endpoint
       const response = await axios.get(`${url}/${userName}/${sliceNumber}`, {
-        responseType: 'arraybuffer' // Set the response type to arraybuffer to handle binary data
+        responseType: "arraybuffer", // Set the response type to arraybuffer to handle binary data
       });
-  
+
       // Convert the array buffer to a Blob
-      const imageBlob = new Blob([new Uint8Array(response.data)], { type: 'image/png' });
-  
+      const imageBlob = new Blob([new Uint8Array(response.data)], {
+        type: "image/png",
+      });
+
       // Create a blob URL representing the image data
       const imageUrl = URL.createObjectURL(imageBlob);
-  
+
       // Assuming you have an img element with the id 'imageContainer'
-      const imageElement = document.getElementById('imageContainer');
-  
+      const imageElement = document.getElementById("imageContainer");
+
       // Set the src attribute of the img element to the blob URL
       imageElement.src = imageUrl;
     } catch (error) {
-      console.error('Failed to load image:', error);
+      console.error("Failed to load image:", error);
     }
   };
 
   const handleFormSubmit = (event, url, userName) => {
-    
     event.preventDefault();
     const formData = new FormData(event.target);
 
@@ -308,16 +309,13 @@ export default function UploadImage() {
       .then((response) => {
         console.log(response.data);
         // Make the second request
-        return axios.get(
-          `http://127.0.0.1:8000/predict/${userName}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-              "ngrok-skip-browser-warning": "1231",
-            },
-          }
-        );
+        return axios.get(`http://127.0.0.1:8000/predict/${userName}`, {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "ngrok-skip-browser-warning": "1231",
+          },
+        });
       })
       .then((response) => {
         const downloadUrl = response.data.download_url;
@@ -385,7 +383,7 @@ export default function UploadImage() {
         >
           <input name="files" type="file" multiple />
           {/* <input type="submit" /> */}
-          <button className="upload-button" type="submit"  disabled={disabled}>
+          <button className="upload-button" type="submit" disabled={disabled}>
             Upload
           </button>
         </form>
@@ -393,41 +391,45 @@ export default function UploadImage() {
           <progress value={uploadProgress} max="100"></progress>
           <p>{statusText}</p>
         </div>
-        {statusText === "Completed..." && (<>
-          <form
-            onSubmit={(event) =>
-              handleImageGetter(
-                event,
-                slice,
-                "http://127.0.0.1:8000/plot",
-                user
-              )
-            }
-          >
-            {/* get a numerical input whose value is limited from 0 to 155 and sets the selected value to a state*/}
-            <input
-              type="number"
-              min="0"
-              max="155"
-              onChange={(e) => {
-                setSliceNum(e.target.value);
-              }}
-              />
+        {statusText === "Completed..." && (
+          <>
+            <form
+              onSubmit={(event) =>
+                handleImageGetter(
+                  event,
+                  slice,
+                  "http://127.0.0.1:8000/plot",
+                  user
+                )
+              }
+            >
+              {/* get a numerical input whose value is limited from 0 to 155 and sets the selected value to a state*/}
 
-                <button className="upload-button" type="submit" >
-                  Get Image
-                </button>
+              <span style={{marginRight:10 }}>
+                <input
+                  type="number"
+                  min="0"
+                  max="155"
+                  onChange={(e) => {
+                    setSliceNum(e.target.value);
+                  }}
+                />
+              </span>
 
-          </form>
-        <img className="imageContainer" id="imageContainer" src="" alt="Image" />
-        </>)}
+              <button className="upload-button" type="submit">
+                Get Image
+              </button>
+            </form>
+            <img
+              className="imageContainer"
+              id="imageContainer"
+              src=""
+              alt="Image"
+            />
+          </>
+        )}
       </div>
     </div>
-
-    
   );
 }
 //------>
-
-
-
