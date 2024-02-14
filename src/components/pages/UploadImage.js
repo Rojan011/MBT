@@ -413,7 +413,11 @@ export default function UploadImage() {
                 setSliceNum(e.target.value);
               }}
               />
-            <input type="submit" value="Get Image" />
+
+                <button className="upload-button" type="submit" >
+                  Get Image
+                </button>
+
           </form>
         <img className="imageContainer" id="imageContainer" src="" alt="Image" />
         </>)}
