@@ -381,16 +381,29 @@ export default function UploadImage() {
             )
           }
         >
-          <input name="files" type="file" multiple />
-          {/* <input type="submit" /> */}
-          <button className="upload-button" type="submit" disabled={disabled}>
-            Upload
-          </button>
+          {statusText != "Completed..." && (
+            <>
+              <input name="files" type="file" multiple />
+              {/* <input type="submit" /> */}
+              <button
+                className="upload-button"
+                type="submit"
+                disabled={disabled}
+              >
+                Upload
+              </button>
+            </>
+          )}
         </form>
-        <div className="progress-bar-container">
-          <progress value={uploadProgress} max="100"></progress>
-          <p>{statusText}</p>
-        </div>
+        {statusText != "Completed..." && (
+          <>
+            {" "}
+            <div className="progress-bar-container">
+              <progress value={uploadProgress} max="100"></progress>
+              <p>{statusText}</p>
+            </div>
+          </>
+        )}
         {statusText === "Completed..." && (
           <>
             <form
@@ -405,7 +418,7 @@ export default function UploadImage() {
             >
               {/* get a numerical input whose value is limited from 0 to 155 and sets the selected value to a state*/}
 
-              <span style={{marginRight:10 }}>
+              <span style={{ marginRight: 10 }}>
                 <input
                   type="number"
                   min="0"
