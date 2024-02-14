@@ -381,9 +381,7 @@ export default function UploadImage() {
             )
           }
         >
-          {statusText !== "Completed..." && (
-            <>
-              <input name="files" type="file" multiple />
+          <input name="files" type="file" multiple />
               {/* <input type="submit" /> */}
               <button
                 className="upload-button"
@@ -392,8 +390,6 @@ export default function UploadImage() {
               >
                 Upload
               </button>
-            </>
-          )}
         </form>
         {statusText !== "Completed..." && (
           <>
