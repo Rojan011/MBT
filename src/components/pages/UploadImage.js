@@ -253,6 +253,32 @@ export default function UploadImage() {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [statusText, setStatusText] = useState("Upload");
   const [disabled,setIsDisabled]=useState(false);
+  const [slice, setSliceNum]=useState(0);
+
+  const handleImageGetter = async (event, sliceNumber, url, userName) => {
+    event.preventDefault();
+  
+    try {
+      // Make a GET request to the API endpoint
+      const response = await axios.get(`${url}/${userName}/${sliceNumber}`, {
+        responseType: 'arraybuffer' // Set the response type to arraybuffer to handle binary data
+      });
+  
+      // Convert the array buffer to a Blob
+      const imageBlob = new Blob([new Uint8Array(response.data)], { type: 'image/png' });
+  
+      // Create a blob URL representing the image data
+      const imageUrl = URL.createObjectURL(imageBlob);
+  
+      // Assuming you have an img element with the id 'imageContainer'
+      const imageElement = document.getElementById('imageContainer');
+  
+      // Set the src attribute of the img element to the blob URL
+      imageElement.src = imageUrl;
+    } catch (error) {
+      console.error('Failed to load image:', error);
+    }
+  };
 
   const handleFormSubmit = (event, url, userName) => {
     
@@ -283,7 +309,7 @@ export default function UploadImage() {
         console.log(response.data);
         // Make the second request
         return axios.get(
-          `https://eagerly-nearby-jaguar.ngrok-free.app/predict/${userName}`,
+          `http://127.0.0.1:8000/predict/${userName}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -352,7 +378,7 @@ export default function UploadImage() {
           onSubmit={(event) =>
             handleFormSubmit(
               event,
-              `https://eagerly-nearby-jaguar.ngrok-free.app/uploadfiles/${user}`,
+              `http://127.0.0.1:8000/uploadfiles/${user}`,
               user
             )
           }
@@ -367,8 +393,34 @@ export default function UploadImage() {
           <progress value={uploadProgress} max="100"></progress>
           <p>{statusText}</p>
         </div>
+        {statusText === "Completed..." && (<>
+          <form
+            onSubmit={(event) =>
+              handleImageGetter(
+                event,
+                slice,
+                "http://127.0.0.1:8000/plot",
+                user
+              )
+            }
+          >
+            {/* get a numerical input whose value is limited from 0 to 155 and sets the selected value to a state*/}
+            <input
+              type="number"
+              min="0"
+              max="155"
+              onChange={(e) => {
+                setSliceNum(e.target.value);
+              }}
+              />
+            <input type="submit" value="Get Image" />
+          </form>
+        <img className="imageContainer" id="imageContainer" src="" alt="Image" />
+        </>)}
       </div>
     </div>
+
+    
   );
 }
 //------>
