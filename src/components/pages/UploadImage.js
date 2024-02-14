@@ -381,7 +381,7 @@ export default function UploadImage() {
             )
           }
         >
-          {statusText != "Completed..." && (
+          {statusText !== "Completed..." && (
             <>
               <input name="files" type="file" multiple />
               {/* <input type="submit" /> */}
@@ -395,9 +395,8 @@ export default function UploadImage() {
             </>
           )}
         </form>
-        {statusText != "Completed..." && (
+        {statusText !== "Completed..." && (
           <>
-            {" "}
             <div className="progress-bar-container">
               <progress value={uploadProgress} max="100"></progress>
               <p>{statusText}</p>
