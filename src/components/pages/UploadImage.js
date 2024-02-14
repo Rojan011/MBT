@@ -382,14 +382,10 @@ export default function UploadImage() {
           }
         >
           <input name="files" type="file" multiple />
-              {/* <input type="submit" /> */}
-              <button
-                className="upload-button"
-                type="submit"
-                disabled={disabled}
-              >
-                Upload
-              </button>
+          {/* <input type="submit" /> */}
+          <button className="upload-button" type="submit" disabled={disabled}>
+            Upload
+          </button>
         </form>
         {statusText !== "Completed..." && (
           <>
@@ -401,11 +397,7 @@ export default function UploadImage() {
         )}
         {statusText === "Completed..." && (
           <>
-           <div>
-            <h5>Choose a Slice Number</h5>
-           </div>
-           <div>
-           <form
+            <form
               onSubmit={(event) =>
                 handleImageGetter(
                   event,
@@ -418,6 +410,7 @@ export default function UploadImage() {
               {/* get a numerical input whose value is limited from 0 to 155 and sets the selected value to a state*/}
 
               <span style={{ marginRight: 10 }}>
+                <span style={{ marginRight: 1 }}>Slice number</span>
                 <input
                   type="number"
                   min="0"
@@ -438,7 +431,6 @@ export default function UploadImage() {
               src=""
               alt="Image"
             />
-           </div>
           </>
         )}
       </div>
