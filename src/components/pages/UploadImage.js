@@ -401,7 +401,11 @@ export default function UploadImage() {
         )}
         {statusText === "Completed..." && (
           <>
-            <form
+           <div>
+            <h5>Choose a Slice Number</h5>
+           </div>
+           <div>
+           <form
               onSubmit={(event) =>
                 handleImageGetter(
                   event,
@@ -434,6 +438,7 @@ export default function UploadImage() {
               src=""
               alt="Image"
             />
+           </div>
           </>
         )}
       </div>
