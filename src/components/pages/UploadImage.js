@@ -410,7 +410,7 @@ export default function UploadImage() {
               {/* get a numerical input whose value is limited from 0 to 155 and sets the selected value to a state*/}
 
               <span style={{ marginRight: 10 }}>
-                <span style={{ marginRight: 1 }}>Slice number</span>
+                <span style={{ marginRight: 3 }}>Slice number:</span>
                 <input
                   type="number"
                   min="0"
