@@ -399,7 +399,7 @@ export default function UploadImage() {
             </div>
           </>
         )}
-        {statusText === "Completed..." && (
+        {showBar && (
           <>
             <form
               onSubmit={(event) =>
