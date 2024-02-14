@@ -251,6 +251,7 @@ import "./UploadImage.css";
 
 export default function UploadImage() {
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [showBar,setShowBar]=useState(false);
   const [statusText, setStatusText] = useState("Upload");
   const [disabled, setIsDisabled] = useState(false);
   const [slice, setSliceNum] = useState(0);
@@ -283,6 +284,7 @@ export default function UploadImage() {
   };
 
   const handleFormSubmit = (event, url, userName) => {
+    setShowBar(true);
     event.preventDefault();
     const formData = new FormData(event.target);
 
@@ -296,6 +298,7 @@ export default function UploadImage() {
             (progressEvent.loaded * 100) / progressEvent.total
           );
           setUploadProgress(percentCompleted);
+         
           if (percentCompleted < 100) {
             setIsDisabled(true);
             setStatusText("Uploading...");
@@ -355,6 +358,7 @@ export default function UploadImage() {
         link.remove();
         setStatusText("Completed...");
         setIsDisabled(false);
+        setShowBar(false);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -387,7 +391,7 @@ export default function UploadImage() {
             Upload
           </button>
         </form>
-        {statusText !== "Completed..." && (
+        {showBar && (
           <>
             <div className="progress-bar-container">
               <progress value={uploadProgress} max="100"></progress>
