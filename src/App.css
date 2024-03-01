@@ -7,7 +7,6 @@
 
 .home,
 .uploadimage,
-.mriinformation,
 .sign-up {
   display: flex;
   height: 90vh;
@@ -27,13 +26,7 @@
   flex-direction: column;
 }
 /* products--> MriInformation ko css ho */
-.mriinformation {
-  background-image: url("../public/images/blog.png");
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
-}
+
 
 .sign-up {
   background-image: url("../public/images/loginb.png");

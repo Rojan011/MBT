@@ -99,11 +99,11 @@ function Navbar() {
 
             <li className="nav-item">
               <Link
-                to="/mriinformation"
+                to="/modelinformation"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                MRI Information
+                Model Information
               </Link>
             </li>
             <li>

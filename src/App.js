@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import SignUp from "./components/pages/SignUp";
 import UploadImage from "./components/pages/UploadImage";
-import MriInformation from "./components/pages/MriInformation";
+import ModelInformation from "./components/pages/ModelInformation";
 import HealthAdvices from "./components/pages/HealthAdvices/HealthAdvices";
 
 import Blog from "./components/pages/HealthAdvices/Blog";
@@ -28,7 +28,7 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/uploadfiles" exact element={login?<UploadImage />:<SignUp/>} />
-            <Route path="/mriinformation" exact element={<MriInformation />} />
+            <Route path="/modelinformation" exact element={<ModelInformation />} />
             <Route path="/sign-up" exact element={<SignUp />} />
             <Route path="/healthadvices" exact element={<HealthAdvices />} />
             <Route path="blog/:id" exact element={<Blog />} />
