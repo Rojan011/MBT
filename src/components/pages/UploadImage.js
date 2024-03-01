@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import { useState } from "react";
 import "../../App.css";
@@ -399,7 +401,7 @@ export default function UploadImage() {
             </div>
           </>
         )}
-        {showBar && (
+        {statusText === "Completed..." && (
           <>
             <form
               onSubmit={(event) =>
@@ -442,3 +444,4 @@ export default function UploadImage() {
   );
 }
 //------>
+
